@@ -36,7 +36,7 @@ python3 -m http.server 8000 --bind 127.0.0.1
 
 ## GitHub Pagesで公開するとき
 
-**2026年10月10日、ユーザーの指示によりGitHub Pagesでの初回公開を実施します。公開元は`main` / `/(root)`です。App Store Connectは変更しません。以下は公開設定の手順です。**
+**2026年10月10日、ユーザーの指示によりGitHub Pagesでの初回公開を完了しました。公開元は`main` / `/(root)`です。App Store Connectは変更しません。以下は公開設定の手順です。**
 
 1. GitHubの利用アカウントとリポジトリ名を確定し、このサイト専用のリポジトリを作成します。利用プランに応じたPagesの利用条件と、ソース・コミット情報の公開範囲を確認してください。
 2. 下記の公開前確認を完了します。Gitのコミット作者名・メールアドレスも、公開してよい値か確認してください。公開ページに書いていなくても、公開リポジトリの履歴は閲覧されます。
@@ -141,10 +141,27 @@ Apple Musicの名称は機能の説明に使い、盤景やRomanesco Appsより�
 
 ## 公開作業・引き継ぎ
 
-2026年10月10日。既存の`a80af68`から公開準備ブランチを作成し、履歴を維持して`main`へ反映します。初回公開日を確定し、GitHub公式文書に基づいてPagesのIPアドレス記録・保存の説明をポリシーに追記しました。
+2026年10月10日。既存の`a80af68`から公開準備ブランチを作成し、履歴を維持して`main`へ反映しました。初回公開日を確定し、GitHub公式文書に基づいてPagesのIPアドレス記録・保存の説明をポリシーに追記しました。
 
 - 公開前の`main`は`a80af68`で作業ツリーはクリーン、remoteなし。GitHubの認証済みアカウントは`AkiraYass`で、同名リポジトリが存在しないことを確認。
 - 公開対象と既存履歴はHTML 2件・CSS・READMEの4ファイルのみ。アプリ本体、Xcode設定、鍵、トークン、不要な個人情報は含まれていません。コミット作者・コミッターはRomanesco Appsと公開問い合わせ用メールアドレスです。
 - 問い合わせ先は両ページとも`mailto:romanescoapps@gmail.com`。メールの実送信は行いません。
 - VinylDisplay本体・同リポジトリの文書・App Store Connectは変更しません。サイトの引き継ぎはこのREADMEで管理します。
-- 公開後のURL・デプロイ結果・表示検証は、完了後にこの節へ追記します。
+
+公開URL：
+
+- リポジトリ：https://github.com/AkiraYass/bankei-support
+- サポート：https://akirayass.github.io/bankei-support/
+- プライバシーポリシー：https://akirayass.github.io/bankei-support/privacy.html
+
+公開設定・検証結果：
+
+- Publicリポジトリ、既定ブランチ`main`。GitHub Pagesの公開元は`main` / `/(root)`、`build_type=legacy`、HTTPS強制は有効。初回デプロイ成功、Pages状態`built`を確認。
+- `a80af68`を祖先として維持。公開準備コミットは`d81f1b3`。push対象は`main`のみで、公開履歴の作者・コミッターを公開用名義に統一。個人名義で一時作成した未公開の追加コミットは、push前に修正済み。
+- 公開HTTPSの両HTMLをChromeで実測。両ページ×8条件（1440px、1024px、390px、320px、PC／スマートフォン暗色、390px／320pxで文字200%）の16ケースすべて成功。横方向のはみ出しなし。スマートフォンの両ページをスクリーンショットでも確認。
+- 相互リンク、目次の移動、本文へのスキップリンク、CSS読み込み、見出し・ID参照、両HTMLの問い合わせ先を確認。問い合わせ先は`romanescoapps@gmail.com`。メール送信・受信確認は行っていません。
+- 本文の明暗コントラスト、キーボード操作、印刷表示を確認。ページ表示時の外部リソース要求とJavaScriptエラーは0件。検証用スクリプト・画像は公開リポジトリへ追加していません。
+- GitHub管理のPagesビルドにはNode.js 20の非推奨・Ubuntu環境移行の通知がありましたが、ビルド・デプロイは成功。サイト独自のActionsやアプリのビルドは追加していません。
+- HTML/CSS専用サイトのためXcode Buildは対象外。実機Safari／VoiceOverの検証は未実施。`git diff --check`と差分レビューを実施。
+
+次回以降は対象ファイルを編集・確認してコミットし、`main`をpushするとGitHub Pagesが再公開されます。App Store ConnectへのURL登録は今回行っていません。
